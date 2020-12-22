@@ -69,7 +69,7 @@ onesignal:
 
 ```bash
 foo@bar:~$ make docker-up
-foo@bar:~$ make migrate-down
+foo@bar:~$ make migrate-down EXT=postgres
 foo@bar:~$ make migrate-up EXT=postgres
 foo@bar:~$ make route-list
 ```
