@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS teams (
+    id uuid DEFAULT uuid_generate_v4(),
+    name VARCHAR(150) NULL DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT current_timestamp,
+    updated_at TIMESTAMP DEFAULT current_timestamp,
+    deleted_at TIMESTAMP NULL DEFAULT NULL,
+    PRIMARY KEY (id)
+);
+
+-- Add various indexes to teams table.
+DO
+$$
+BEGIN
+    IF to_regclass('idx_teams_name') IS NULL THEN
+      CREATE INDEX idx_teams_name ON teams (name);
+    END IF;
+END
+$$;
